@@ -115,9 +115,19 @@ class _LoginPageState extends State<LoginPage> {
         ),
         SizedBox(height: h * 0.08),
         RichText(
-            text: TextSpan(
-                text: "Don't have a account?",
-                style: TextStyle(color: Colors.grey, fontSize: 15)))
+          text: TextSpan(
+              text: "Don't have a account?",
+              style: TextStyle(color: Colors.grey, fontSize: 15),
+              children: [
+                TextSpan(
+                  text: "Create",
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                ),
+              ]),
+        )
       ],
     ));
   }
