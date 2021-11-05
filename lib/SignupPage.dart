@@ -8,12 +8,23 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
+    List social = ["google.png", "twitter.png", "facebook.png"];
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Column(
       children: [
         Container(
+          child: Column(
+            children: [
+              SizedBox(height: h / 8),
+              CircleAvatar(
+                radius: 40,
+                backgroundColor: Colors.transparent,
+                backgroundImage: AssetImage("img/avatar.png"),
+              )
+            ],
+          ),
           width: w,
           height: h * 0.3,
           decoration: BoxDecoration(
@@ -30,11 +41,7 @@ class _SignUpState extends State<SignUp> {
           ),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text("Hello",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40)),
-            Text("Sign into your account",
-                style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
-            SizedBox(height: 50),
+            SizedBox(height: 25),
             Container(
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -46,16 +53,19 @@ class _SignUpState extends State<SignUp> {
                         color: Colors.grey.withOpacity(0.2)),
                   ]),
               child: TextField(
-                  decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-              )),
+                decoration: InputDecoration(
+                  hintText: "Email ",
+                  prefixIcon: Icon(Icons.email, color: Colors.grey),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                ),
+              ),
             ),
             SizedBox(height: 20),
             Container(
@@ -69,25 +79,19 @@ class _SignUpState extends State<SignUp> {
                         color: Colors.grey.withOpacity(0.2)),
                   ]),
               child: TextField(
-                  decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-              )),
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                Expanded(child: Container()),
-                Text("Forget your password?",
-                    style:
-                        TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
-              ],
+                decoration: InputDecoration(
+                  hintText: "Password ",
+                  prefixIcon: Icon(Icons.lock, color: Colors.grey),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                ),
+              ),
             ),
             SizedBox(height: 20),
           ]),
@@ -114,17 +118,32 @@ class _SignUpState extends State<SignUp> {
         SizedBox(height: h * 0.08),
         RichText(
           text: TextSpan(
-              text: "Don't have a account?",
-              style: TextStyle(color: Colors.grey, fontSize: 15),
-              children: [
-                TextSpan(
-                  text: "Create",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+            text: "Sign in using following method",
+            style: TextStyle(color: Colors.grey, fontSize: 15),
+          ),
+        ),
+        Wrap(
+          children: List<Widget>.generate(3, (index) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xFF66BB6A),
+                    boxShadow: [
+                      new BoxShadow(
+                        color: Colors.black38,
+                        blurRadius: 2,
+                      ),
+                    ]),
+                child: CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white,
+                  backgroundImage: AssetImage("img/" + social[index]),
                 ),
-              ]),
+              ),
+            );
+          }),
         )
       ],
     ));

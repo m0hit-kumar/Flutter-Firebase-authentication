@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'LoginPage.dart';
+// import 'LoginPage.dart';
+import 'SignupPage.dart';
 // import 'SignUp.dart';
 // import 'package:geolocator/geolocator.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: SignUp(),
     );
   }
 }
