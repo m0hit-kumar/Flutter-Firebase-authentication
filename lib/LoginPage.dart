@@ -1,4 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_001/SignupPage.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -34,9 +37,10 @@ class _LoginPageState extends State<LoginPage> {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text("Hello",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40)),
-            Text("Sign into your account",
+            Text("Sign in into your account",
                 style: TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
             SizedBox(height: 50),
+            SizedBox(height: 25),
             Container(
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -48,16 +52,19 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.grey.withOpacity(0.2)),
                   ]),
               child: TextField(
-                  decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-              )),
+                decoration: InputDecoration(
+                  hintText: "Email ",
+                  prefixIcon: Icon(Icons.email, color: Colors.grey),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                ),
+              ),
             ),
             SizedBox(height: 20),
             Container(
@@ -71,25 +78,19 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.grey.withOpacity(0.2)),
                   ]),
               child: TextField(
-                  decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: Colors.white, width: 1.0)),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-              )),
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                Expanded(child: Container()),
-                Text("Forget your password?",
-                    style:
-                        TextStyle(fontWeight: FontWeight.normal, fontSize: 12)),
-              ],
+                decoration: InputDecoration(
+                  hintText: "Password ",
+                  prefixIcon: Icon(Icons.lock, color: Colors.grey),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                ),
+              ),
             ),
             SizedBox(height: 20),
           ]),
@@ -120,12 +121,13 @@ class _LoginPageState extends State<LoginPage> {
               style: TextStyle(color: Colors.grey, fontSize: 15),
               children: [
                 TextSpan(
-                  text: "Create",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-                ),
+                    text: "Create",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () => Get.to(() => SignUp())),
               ]),
         )
       ],
