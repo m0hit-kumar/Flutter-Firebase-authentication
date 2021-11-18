@@ -51,7 +51,7 @@ class _SignUpState extends State<SignUp> {
                       BoxShadow(
                           blurRadius: 10,
                           offset: Offset(1, 1),
-                          color: Colors.grey.withOpacity(0.2)),
+                          color: Colors.grey.withOpacity(0.3)),
                     ]),
                 child: TextField(
                   decoration: InputDecoration(
